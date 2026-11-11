@@ -106,6 +106,36 @@
       width: 100%;
       height: auto;
     }
+    .dataset-samples { max-width: none; margin-bottom: 0; }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .sample-card {
+      overflow: hidden;
+      border: 1px solid #dce6de;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .sample-card video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      background: #15201b;
+    }
+
+    .sample-caption { padding: 12px 14px 14px; }
+    .sample-caption h3 { margin: 0 0 4px; font-size: 1rem; }
+    .sample-caption p { font-size: 0.875rem; line-height: 1.45; }
+
+    @media (max-width: 760px) {
+      .sample-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -125,6 +155,44 @@
         <img src="./assets/figure-1.png" width="2400" height="1224" alt="Figure 1. Overview of GARDEN and an example of 3DGS quality evaluation and understanding.">
       </a>
     </figure>
+    <section class="dataset-samples" aria-labelledby="samples-heading">
+      <h2 id="samples-heading">Dataset Samples</h2>
+      <div class="sample-grid">
+        <article class="sample-card">
+          <video controls playsinline preload="none" width="960" height="540"
+                 poster="./assets/videos/sample00001.jpg" aria-label="Generation: Rocky coastline">
+            <source src="./assets/videos/sample00001.mp4" type="video/mp4">
+            <a href="./assets/videos/sample00001.mp4">Download the generation video</a>
+          </video>
+          <div class="sample-caption">
+            <h3>Generation · Rocky coastline</h3>
+            <p>Text-to-3DGS · sample00001</p>
+          </div>
+        </article>
+        <article class="sample-card">
+          <video controls playsinline preload="none" width="960" height="540"
+                 poster="./assets/videos/sample00953.jpg" aria-label="Editing: Bear statue to panda">
+            <source src="./assets/videos/sample00953.mp4" type="video/mp4">
+            <a href="./assets/videos/sample00953.mp4">Download the editing video</a>
+          </video>
+          <div class="sample-caption">
+            <h3>Editing · Bear statue to panda</h3>
+            <p>Text-guided editing · sample00953</p>
+          </div>
+        </article>
+        <article class="sample-card">
+          <video controls playsinline preload="none" width="960" height="540"
+                 poster="./assets/videos/sample00558.jpg" aria-label="Restoration: Mountain cabin">
+            <source src="./assets/videos/sample00558.mp4" type="video/mp4">
+            <a href="./assets/videos/sample00558.mp4">Download the restoration video</a>
+          </video>
+          <div class="sample-caption">
+            <h3>Restoration · Mountain cabin</h3>
+            <p>Dynamic occlusion removal · sample00558</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
   <script>
     // A GitHub Pages project URL contains the GitHub owner and repository name.
