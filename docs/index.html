@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GARDEN: Benchmarking and Improving Quality Evaluation and Understanding of 3D Gaussian Splatting in Generation, Editing, and Restoration</title>
+  <style>
+    :root {
+      color-scheme: light;
+      background: #f8faf8;
+      color: #1e3028;
+      font-family: "Instrument Sans", "Segoe UI", sans-serif;
+    }
+
+    body { margin: 0; }
+
+    main {
+      width: min(1240px, calc(100% - clamp(32px, 7vw, 96px)));
+      margin-inline: auto;
+      padding-block: clamp(48px, 9vw, 108px) 64px;
+    }
+
+    h1 {
+      max-width: 1120px;
+      margin: 0 auto;
+      text-align: center;
+      text-wrap: balance;
+      font-family: Georgia, serif;
+      font-size: clamp(1.75rem, 4.1vw, 3.45rem);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+    }
+
+    h1 strong { color: #2e664d; }
+
+    .resource-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: clamp(20px, 3vw, 32px);
+    }
+
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      min-width: 82px;
+      min-height: 44px;
+      padding: 8px 18px;
+      border: 1px solid #2e664d;
+      border-radius: 8px;
+      background: #2e664d;
+      color: white;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .resource-link[href]:hover { background: #244f3c; }
+
+    .resource-link[href]:focus-visible {
+      outline: 2px solid #2e664d;
+      outline-offset: 3px;
+    }
+
+    .resource-link[aria-disabled="true"] {
+      border-color: #dbe2dc;
+      background: #eef1ee;
+      color: #5c685f;
+      cursor: default;
+    }
+
+    section {
+      max-width: 1080px;
+      margin: clamp(28px, 4.5vw, 52px) auto 32px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      color: #2e664d;
+      font-size: 1.125rem;
+      font-weight: 650;
+    }
+
+    p {
+      margin: 0;
+      color: #33483e;
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      line-height: 1.75;
+    }
+
+    figure {
+      margin: 0;
+      padding: clamp(8px, 1.7vw, 20px);
+      border: 1px solid #dce6de;
+      border-radius: 12px;
+      background: white;
+    }
+
+    figure a { display: block; }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1><strong>GARDEN:</strong> Benchmarking and Improving Quality Evaluation and Understanding of 3D Gaussian Splatting in Generation, Editing, and Restoration</h1>
+    <nav class="resource-links" aria-label="Project resources">
+      <a class="resource-link" id="code-link" role="link" aria-disabled="true">Code</a>
+      <span class="resource-link" role="link" aria-disabled="true">Paper</span>
+      <span class="resource-link" role="link" aria-disabled="true">Data</span>
+    </nav>
+    <section aria-labelledby="abstract-heading">
+      <h2 id="abstract-heading">Abstract</h2>
+      <p>As 3D Gaussian Splatting (3DGS) is more widely used in generation, editing, and restoration, the evaluation of 3DGS results has become increasingly important. A reliable quality assessment of the 3DGS results requires considering both perceptual quality and task completion. Existing methods often target individual tasks, and their scores provide a limited explanation of the defects in the 3DGS results. To address these limitations, we construct GARDEN, a database of 1,064 rendered samples spanning nine subtasks across generation, editing, and restoration. GARDEN provides expert ratings for geometric structure, texture appearance, task completion, and overall quality, along with diagnostic rationales. We further propose UniGEM, a unified 3D-aware multimodal large language model framework for task-aware quality assessment and interpretation. UniGEM fuses cross-view features extracted by a frozen geometry encoder with the corresponding visual tokens from the sampled video frames. The model uses the fused representations together with available task conditions to predict quality scores for multiple perspectives and generate diagnostic rationales. Extensive experiments on GARDEN show the superior performance of UniGEM in assessing quality across three tasks and four perspectives. Its diagnostic rationales also achieve the highest aggregate score among the compared methods.</p>
+    </section>
+    <figure>
+      <a href="./assets/figure-1.png">
+        <img src="./assets/figure-1.png" width="2400" height="1224" alt="Figure 1. Overview of GARDEN and an example of 3DGS quality evaluation and understanding.">
+      </a>
+    </figure>
+  </main>
+  <script>
+    // A GitHub Pages project URL contains the GitHub owner and repository name.
+    const pagesHost = /^([a-z0-9-]+)\.github\.io$/.exec(window.location.hostname);
+    const repoName = window.location.pathname.split("/")[1];
+    if (pagesHost && /^[a-z0-9_.-]+$/i.test(repoName) && repoName) {
+      const codeLink = document.getElementById("code-link");
+      codeLink.href = `https://github.com/${pagesHost[1]}/${repoName}`;
+      codeLink.removeAttribute("aria-disabled");
+    }
+  </script>
+</body>
+</html>
