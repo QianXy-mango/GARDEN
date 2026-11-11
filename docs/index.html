@@ -17,16 +17,15 @@
     main {
       width: min(1240px, calc(100% - clamp(32px, 7vw, 96px)));
       margin-inline: auto;
-      padding-block: clamp(48px, 9vw, 108px) 64px;
+      padding-block: 18px 16px;
     }
 
     h1 {
-      max-width: 1120px;
       margin: 0 auto;
       text-align: center;
       text-wrap: balance;
       font-family: Georgia, serif;
-      font-size: clamp(1.5rem, 3.5vw, 2.85rem);
+      font-size: clamp(1.375rem, 2.2vw, 1.75rem);
       font-weight: 600;
       letter-spacing: -0.035em;
       line-height: 1.1;
@@ -39,7 +38,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      margin-top: clamp(20px, 3vw, 32px);
+      margin-top: 10px;
     }
 
     .resource-link {
@@ -47,13 +46,14 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      min-width: 82px;
-      min-height: 44px;
-      padding: 8px 18px;
+      min-width: 70px;
+      min-height: 36px;
+      padding: 5px 14px;
       border: 1px solid #2e664d;
       border-radius: 8px;
       background: #2e664d;
       color: white;
+      font-size: 0.875rem;
       font-weight: 650;
       text-decoration: none;
     }
@@ -72,28 +72,34 @@
       cursor: default;
     }
 
-    section {
-      max-width: 1080px;
-      margin: clamp(28px, 4.5vw, 52px) auto 32px;
+    .paper-overview {
+      display: grid;
+      grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr);
+      align-items: center;
+      gap: clamp(16px, 2vw, 28px);
+      margin-top: 12px;
     }
 
     h2 {
-      margin: 0 0 12px;
+      margin: 0 0 7px;
       color: #2e664d;
-      font-size: 1.0625rem;
+      font-size: 1rem;
       font-weight: 650;
     }
 
     p {
       margin: 0;
       color: #33483e;
-      font-size: clamp(0.9375rem, 1.25vw, 1.03125rem);
-      line-height: 1.68;
+      font-size: 0.875rem;
+      line-height: 1.4;
     }
 
     figure {
-      margin: 0;
-      padding: clamp(8px, 1.7vw, 20px);
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 8px;
       border: 1px solid #dce6de;
       border-radius: 12px;
       background: white;
@@ -106,7 +112,7 @@
       width: 100%;
       height: auto;
     }
-    .dataset-samples { max-width: none; margin-bottom: 0; }
+    .dataset-samples { margin-top: 10px; }
 
     .sample-grid {
       display: grid;
@@ -129,9 +135,13 @@
       background: #15201b;
     }
 
-    .sample-caption { padding: 12px 14px 14px; }
+    .sample-caption { padding: 7px 12px 8px; }
     .sample-caption h3 { margin: 0 0 4px; font-size: 0.9375rem; }
     .sample-caption p { font-size: 0.8125rem; line-height: 1.45; }
+
+    @media (max-width: 920px) {
+      .paper-overview { grid-template-columns: 1fr; }
+    }
 
     @media (max-width: 760px) {
       .sample-grid { grid-template-columns: 1fr; }
@@ -146,15 +156,17 @@
       <span class="resource-link" role="link" aria-disabled="true">Paper</span>
       <span class="resource-link" role="link" aria-disabled="true">Data</span>
     </nav>
-    <section aria-labelledby="abstract-heading">
-      <h2 id="abstract-heading">Abstract</h2>
-      <p>As 3D Gaussian Splatting (3DGS) is more widely used in generation, editing, and restoration, the evaluation of 3DGS results has become increasingly important. A reliable quality assessment of the 3DGS results requires considering both perceptual quality and task completion. Existing methods often target individual tasks, and their scores provide a limited explanation of the defects in the 3DGS results. To address these limitations, we construct GARDEN, a database of 1,064 rendered samples spanning nine subtasks across generation, editing, and restoration. GARDEN provides expert ratings for geometric structure, texture appearance, task completion, and overall quality, along with diagnostic rationales. We further propose UniGEM, a unified 3D-aware multimodal large language model framework for task-aware quality assessment and interpretation. UniGEM fuses cross-view features extracted by a frozen geometry encoder with the corresponding visual tokens from the sampled video frames. The model uses the fused representations together with available task conditions to predict quality scores for multiple perspectives and generate diagnostic rationales. Extensive experiments on GARDEN show the superior performance of UniGEM in assessing quality across three tasks and four perspectives. Its diagnostic rationales also achieve the highest aggregate score among the compared methods.</p>
-    </section>
-    <figure>
-      <a href="./assets/figure-1.png">
-        <img src="./assets/figure-1.png" width="2400" height="1224" alt="Figure 1. Overview of GARDEN and an example of 3DGS quality evaluation and understanding.">
-      </a>
-    </figure>
+    <div class="paper-overview">
+      <section aria-labelledby="abstract-heading">
+        <h2 id="abstract-heading">Abstract</h2>
+        <p>As 3D Gaussian Splatting (3DGS) is more widely used in generation, editing, and restoration, the evaluation of 3DGS results has become increasingly important. A reliable quality assessment of the 3DGS results requires considering both perceptual quality and task completion. Existing methods often target individual tasks, and their scores provide a limited explanation of the defects in the 3DGS results. To address these limitations, we construct GARDEN, a database of 1,064 rendered samples spanning nine subtasks across generation, editing, and restoration. GARDEN provides expert ratings for geometric structure, texture appearance, task completion, and overall quality, along with diagnostic rationales. We further propose UniGEM, a unified 3D-aware multimodal large language model framework for task-aware quality assessment and interpretation. UniGEM fuses cross-view features extracted by a frozen geometry encoder with the corresponding visual tokens from the sampled video frames. The model uses the fused representations together with available task conditions to predict quality scores for multiple perspectives and generate diagnostic rationales. Extensive experiments on GARDEN show the superior performance of UniGEM in assessing quality across three tasks and four perspectives. Its diagnostic rationales also achieve the highest aggregate score among the compared methods.</p>
+      </section>
+      <figure>
+        <a href="./assets/figure-1.png">
+          <img src="./assets/figure-1.png" width="2400" height="1224" alt="Figure 1. Overview of GARDEN and an example of 3DGS quality evaluation and understanding.">
+        </a>
+      </figure>
+    </div>
     <section class="dataset-samples" aria-labelledby="samples-heading">
       <h2 id="samples-heading">Dataset Samples</h2>
       <div class="sample-grid">
